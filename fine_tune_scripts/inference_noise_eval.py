@@ -20,7 +20,7 @@ from segment_anything import sam_model_registry
 
 join = os.path.join
 
-# --------------------- Speckle Noise --------
+#  Speckle Noise
 #adding  noise to an image to stimulate speckle noise in real world practice
 def add_speckle_noise(image, variance=0.1): #variance is what determines the level of noise added to the image
     noise = np.random.normal(0, np.sqrt(variance), image.shape)
@@ -28,7 +28,7 @@ def add_speckle_noise(image, variance=0.1): #variance is what determines the lev
     noisy_image = np.clip(noisy_image, 0, 255)
     return noisy_image.astype(np.uint8)
 
-# ---------------------- Dataset --------
+#  Dataset 
 class NpyDataset(Dataset): #making sure to follow the same naming format for making the .npy conversions
     def __init__(self, data_root, apply_noise=False, noise_variance=0.1):
         self.img_path = join(data_root, "imgs")
@@ -66,7 +66,7 @@ class NpyDataset(Dataset): #making sure to follow the same naming format for mak
             img_name
         )
 
-# ---------------------- MedSAM Model --------
+# MedSAM Model
 class MedSAM(nn.Module): #same as before - referencing repo
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
@@ -94,7 +94,7 @@ class MedSAM(nn.Module): #same as before - referencing repo
         ori_res_masks = F.interpolate(low_res_masks, size=(image.shape[2], image.shape[3]), mode="bilinear", align_corners=False)
         return ori_res_masks
 
-# ----------------------- Metrics --------
+#  Metrics 
 def compute_metrics(preds, targets): #same across all tests
     smooth = 1e-6
     preds = preds.view(preds.shape[0], -1)
@@ -116,7 +116,7 @@ def compute_metrics(preds, targets): #same across all tests
         'recall': recall.mean().item(),
     }
 
-# --------------------- Main ----------
+#  Main 
 def main(): #same case of allowing for arguements to be custom so i can use it with different testing parameters
     parser = argparse.ArgumentParser()
     parser.add_argument("-data_path", type=str, required=True)
