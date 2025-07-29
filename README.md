@@ -60,6 +60,7 @@ To run the code, you should have the MedSAM environment set up as per [MedSAM Gi
 ---
 
 ##  Dataset
+This project uses the [C-TRUS dataset](https://github.com/wwu-mmll/c-trus), which provides annotated transabdominal ultrasound images for colon wall segmentation tasks.
 
 The C-TRUS dataset should be preprocessed into a format compatible with the scripts:
 - Images: `.npy` or `.jpg` format
