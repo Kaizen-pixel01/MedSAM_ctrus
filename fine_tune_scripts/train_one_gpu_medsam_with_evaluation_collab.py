@@ -74,7 +74,7 @@ class NpyDataset(Dataset):
             img_name,
         )
 
-#  MedSAM Wrapper 
+#  MedSAM formating (kept almost identical to reference file - also freezing the encoder as recommended by github repo)
 class MedSAM(nn.Module):
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
@@ -83,7 +83,7 @@ class MedSAM(nn.Module):
         self.prompt_encoder = prompt_encoder
         for param in self.prompt_encoder.parameters():
             param.requires_grad = False
-
+    
     def forward(self, image, box):
         image_embedding = self.image_encoder(image)
         with torch.no_grad():
@@ -103,8 +103,8 @@ class MedSAM(nn.Module):
         return ori_res_masks
 
 #  Metrics 
-def compute_metrics(preds, targets): #custom function added to reference file since I need to compare peformance between the models
-    smooth = 1e-6
+def compute_metrics(preds, targets): #custom function added different from reference file since I needed the results to match other test formatso i could compare peformance between the models
+    smooth = 1e-8 #same as with zero-shot - to avoid 0 errors
     preds = preds.view(preds.shape[0], -1)
     targets = targets.view(targets.shape[0], -1)
 
