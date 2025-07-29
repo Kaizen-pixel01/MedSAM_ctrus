@@ -14,7 +14,7 @@ import numpy as np
 from tqdm import tqdm
 from segment_anything import sam_model_registry, SamPredictor
 
-# === File & Folder Paths ===
+#  File Paths 
 image_dir = "/content/drive/MyDrive/MedSAM/data/ctrus/images"
 bbox_json = "/content/drive/MyDrive/MedSAM/data/ctrus/bboxes.json"
 checkpoint = "/content/drive/MyDrive/MedSAM/work_dir/MedSAM/medsam_vit_b.pth"
