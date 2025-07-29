@@ -41,6 +41,7 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
 ## Requirements
 
 To run the code, you should have the MedSAM environment set up as per [MedSAM GitHub instructions](https://github.com/bowang-lab/MedSAM).
+- You can clone the MedSAM github repository so that you can have all the necessary files used in the scripts
 
 ---
 
