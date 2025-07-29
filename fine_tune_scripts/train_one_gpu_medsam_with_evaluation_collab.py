@@ -125,7 +125,7 @@ def compute_metrics(preds, targets): #custom function added different from refer
     }
 
 #  Main Training 
-def main():
+def main(): #kept arg together since the reference kept it split up but i found it hard to follow so i put all in the same place (also easier to change when doing different types of training)
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--tr_npy_path", type=str, default="C:/Users/kisha/MedSAM/data/npy_sample")
     parser.add_argument("-task_name", type=str, default="MedSAM-ViT-B")
