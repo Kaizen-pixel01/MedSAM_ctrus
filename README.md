@@ -66,6 +66,7 @@ The C-TRUS dataset should be preprocessed into a format compatible with the scri
 - Images: `.npy` or `.jpg` format
 - Masks: ground truth segmentations
 - Bounding boxes: JSON file or generated from masks
+- Also filtered metadata file to include only image-mask pairs that had valid ground truth masks (where the mask area was not 0) and it was called ctrus.filtered.csv (and it is used when testing MedSAM)
 
 ---
 
