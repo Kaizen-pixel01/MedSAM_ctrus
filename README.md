@@ -46,7 +46,7 @@ This folder contains a npotebook that provides an  **eploratory data analysis (E
 ### Key Features:
 - **Image Quality Distribution**: Visual breakdown of high vs. low-quality ultrasound images (based on metadata annotations).
 - **Mask Coverage**: Computes and visualizes the pixel-wise area covered by the colon wall masks.
-- **Bounding Box Statistics**: Analyzes dimensions and aspect ratios of regions of interest.
+- **Bounding Box Statistics**: Analyzes dimensions of regions of interest.
 - **Class Balance**: Reports how many samples are annotated as "low-quality" vs "high-quality".
 - **Sample Visualizations**: Displays example ultrasound images along with their segmentation masks for qualitative insight.
 
