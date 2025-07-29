@@ -37,6 +37,20 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
 - Can simulate real-world conditions with noisy or low-quality inputs
 
 ---
+## EDA
+
+This folder contains a npotebook that provides an  **eploratory data analysis (EDA)** of the C-TRUS dataset.
+
+- This helps get a better understanding of the C-TRUS dataset as well as some preliminary analysis that can be made on it
+
+### Key Features:
+- **Image Quality Distribution**: Visual breakdown of high vs. low-quality ultrasound images (based on metadata annotations).
+- **Mask Coverage**: Computes and visualizes the pixel-wise area covered by the colon wall masks.
+- **Bounding Box Statistics**: Analyzes dimensions and aspect ratios of regions of interest.
+- **Class Balance**: Reports how many samples are annotated as "low-quality" vs "high-quality".
+- **Sample Visualizations**: Displays example ultrasound images along with their segmentation masks for qualitative insight.
+
+---
 
 ## Requirements
 
