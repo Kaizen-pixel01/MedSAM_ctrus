@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 
 join = os.path.join
 
-# ------------------------- Dataset -------------------------
+#  Dataset 
 class NpyDataset(Dataset):
     def __init__(self, data_root, bbox_shift=20):
         self.data_root = data_root
@@ -74,7 +74,7 @@ class NpyDataset(Dataset):
             img_name,
         )
 
-# ------------------------- MedSAM Wrapper -------------------------
+#  MedSAM Wrapper 
 class MedSAM(nn.Module):
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
@@ -102,7 +102,7 @@ class MedSAM(nn.Module):
         ori_res_masks = F.interpolate(low_res_masks, size=(image.shape[2], image.shape[3]), mode="bilinear", align_corners=False)
         return ori_res_masks
 
-# ------------------------- Metrics -------------------------
+#  Metrics 
 def compute_metrics(preds, targets): #custom function added to reference file since I need to compare peformance between the models
     smooth = 1e-6
     preds = preds.view(preds.shape[0], -1)
@@ -124,7 +124,7 @@ def compute_metrics(preds, targets): #custom function added to reference file si
         'recall': recall.mean().item(),
     }
 
-# ------------------------- Main Training -------------------------
+#  Main Training 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--tr_npy_path", type=str, default="C:/Users/kisha/MedSAM/data/npy_sample")
