@@ -21,7 +21,7 @@ from segment_anything import sam_model_registry
 
 join = os.path.join
 
-# ------------------------- Dataset -------------------------
+# Dataset
 class NpyDataset(Dataset):
     def __init__(self, data_root): #same set up format as training script (making sure paths and folders match up)
         self.img_path = join(data_root, "imgs")
@@ -54,7 +54,7 @@ class NpyDataset(Dataset):
             img_name
         )
 
-# ------------------------- Model -------------------------
+# Model 
 class MedSAM(nn.Module):
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
@@ -84,7 +84,7 @@ class MedSAM(nn.Module):
         ori_res_masks = F.interpolate(low_res_masks, size=(image.shape[2], image.shape[3]), mode="bilinear", align_corners=False)
         return ori_res_masks
 
-# ------------------------- Metrics -------------------------
+#  Metrics 
 def compute_metrics(preds, targets): #same format as training script - needed for comparisons amongst models
     smooth = 1e-6
     preds = preds.view(preds.shape[0], -1)
@@ -106,7 +106,7 @@ def compute_metrics(preds, targets): #same format as training script - needed fo
         'recall': recall.mean().item(),
     }
 
-# ------------------------- Main -------------------------
+#  Main 
 def main(): #this way i can parse commands to run different tests with different fine-tuned MedSAM models 
     parser = argparse.ArgumentParser()
     parser.add_argument("-data_path", type=str, required=True)
