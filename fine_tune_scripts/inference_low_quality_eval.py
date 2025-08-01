@@ -58,10 +58,10 @@ class NpyDataset(Dataset):
 class MedSAM(nn.Module): #ensuring pretrained componets are being used - freezing prompt encoder same as training
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
-        self.image_encoder = image_encoder
-        self.mask_decoder = mask_decoder
-        self.prompt_encoder = prompt_encoder
-        for param in self.prompt_encoder.parameters():
+        self.image_encoder = image_encoder   #extracting the featres
+        self.mask_decoder = mask_decoder    #getting the input prompts (which only be box for my experiments) into features
+        self.prompt_encoder = prompt_encoder  #generating the masks (using the features obtained)
+        for param in self.prompt_encoder.parameters(): #the MedSAM authors recommended this so it was probably to avoind issues when training on new images (i.e overfitting)
             param.requires_grad = False
 
     def forward(self, image, box):
