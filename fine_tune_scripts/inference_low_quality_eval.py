@@ -55,7 +55,7 @@ class NpyDataset(Dataset):
         )
 
 # Model 
-class MedSAM(nn.Module):
+class MedSAM(nn.Module): #ensuring pretrained componets are being used - freezing prompt encoder same as training
     def __init__(self, image_encoder, mask_decoder, prompt_encoder):
         super().__init__()
         self.image_encoder = image_encoder
