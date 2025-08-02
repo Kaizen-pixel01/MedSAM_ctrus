@@ -86,7 +86,7 @@ class MedSAM(nn.Module): #ensuring pretrained componets are being used - freezin
 
 #  Metrics 
 def compute_metrics(preds, targets): #same format as training script - needed for comparisons amongst models
-    smooth = 1e-6
+    smooth = 1e-8  #avoid zero calculations
     preds = preds.view(preds.shape[0], -1)
     targets = targets.view(targets.shape[0], -1)
 
