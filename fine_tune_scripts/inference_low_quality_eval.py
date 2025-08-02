@@ -70,9 +70,9 @@ class MedSAM(nn.Module): #ensuring pretrained componets are being used - freezin
         with torch.no_grad():
             box_torch = torch.as_tensor(box, dtype=torch.float32, device=image.device)
             if len(box_torch.shape) == 2:
-                box_torch = box_torch[:, None, :]
-            sparse_embeddings, dense_embeddings = self.prompt_encoder(points=None, boxes=box_torch, masks=None)
-        #making segmentations
+                box_torch = box_torch[:, None, :]  #needs to match shape of prompt encoder
+            sparse_embeddings, dense_embeddings = self.prompt_encoder(points=None, boxes=box_torch, masks=None) #as mentioned earlier I'm only using box for the experiments (so the rest can be set to none)
+        #making segmentations - calling it low res masks since it is not the same as input image so it needs to be matched at the end
         low_res_masks, _ = self.mask_decoder(
             image_embeddings=image_embedding,
             image_pe=self.prompt_encoder.get_dense_pe(),
