@@ -106,7 +106,7 @@ def compute_metrics(preds, targets): #same format as training script - needed fo
         'recall': recall.mean().item(),
     }
 
-#  Main 
+#  Main - changed some of the formating since it gave extra info and also made it harder to make changes for the different input images (but still the same structure as train_one_gpu reference)
 def main(): #this way i can parse commands to run different tests with different fine-tuned MedSAM models 
     parser = argparse.ArgumentParser()
     parser.add_argument("-data_path", type=str, required=True)
