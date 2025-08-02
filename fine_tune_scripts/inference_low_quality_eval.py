@@ -114,7 +114,7 @@ def main(): #this way i can parse commands to run different tests with different
     parser.add_argument("-model_type", type=str, default="vit_b")
     parser.add_argument("--device", type=str, default="cuda")
     args = parser.parse_args()
-    #makig sure to save the evaluation results
+    #makig sure to save the evaluation results - different folder from training so its easier to track the results
     save_dir = join("/content/drive/MyDrive/MedSAM/eval_results", "Eval-" + datetime.now().strftime("%Y%m%d-%H%M"))
     os.makedirs(save_dir, exist_ok=True)
     #loading the model - same as before
