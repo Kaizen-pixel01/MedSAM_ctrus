@@ -127,10 +127,10 @@ def compute_metrics(preds, targets): #custom function added different from refer
 #  Main Training 
 def main(): #kept arg together since the reference kept it split up but i found it hard to follow so i put all in the same place (also easier to change when doing different types of training)
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--tr_npy_path", type=str, default="C:/Users/kisha/MedSAM/data/npy_sample")
+    parser.add_argument("-i", "--tr_npy_path", type=str, default="C:/Users/kisha/MedSAM/data/npy_sample") #local file that i tested on when first testing training
     parser.add_argument("-task_name", type=str, default="MedSAM-ViT-B")
     parser.add_argument("-model_type", type=str, default="vit_b")
-    parser.add_argument("-checkpoint", type=str, default="C:/Users/kisha/MedSAM/work_dir/MedSAM/medsam_vit_b.pth")
+    parser.add_argument("-checkpoint", type=str, default="C:/Users/kisha/MedSAM/work_dir/MedSAM/medsam_vit_b.pth") #downloaded checkpoint file to test locally
     parser.add_argument("--load_pretrain", type=bool, default=True)
     parser.add_argument("-num_epochs", type=int, default=3)
     parser.add_argument("-batch_size", type=int, default=2)
@@ -236,3 +236,4 @@ def main(): #kept arg together since the reference kept it split up but i found 
 
 if __name__ == "__main__":
     main()
+
