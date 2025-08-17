@@ -71,7 +71,7 @@ for filename in list(bbox_dict.keys()):
 
     input_box = np.array([bbox_dict[filename]]) #MedSAM expects an array 
 
-    try:
+    try: #to prevent run from craching since it was an issue (i also added a skip so that I know when an issue is occuring)
         predictor.set_image(image) #sets image
         transformed_box = predictor.transform.apply_boxes_torch(
             torch.tensor(input_box, dtype=torch.float32, device=device),
@@ -102,5 +102,6 @@ for filename in list(bbox_dict.keys()):
 print(f"\n DONE FINALLY GOT IT TO WORK!")
 print(f"Total processed: {processed}")
 print(f"Total skipped: {skipped}")
+
 
 
