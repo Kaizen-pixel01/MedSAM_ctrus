@@ -66,7 +66,7 @@ class NpyDataset(Dataset):
         y_min = max(0, y_min - random.randint(0, self.bbox_shift))
         y_max = min(H, y_max + random.randint(0, self.bbox_shift))
         box = np.array([x_min, y_min, x_max, y_max])
-
+        #made it simpler as original training file had more options (ie. 2D and so on)
         return (
             torch.tensor(img).float(),
             torch.tensor(label[None, :, :]).long(),
@@ -236,4 +236,5 @@ def main(): #kept arg together since the reference kept it split up but i found 
 
 if __name__ == "__main__":
     main()
+
 
