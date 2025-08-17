@@ -28,7 +28,7 @@ bbox_dict = {entry["image"]: entry["bbox"] for entry in bboxes}
 # Load MedSAM Model - very similar methodology to inference file with single image
 device = "cuda" if torch.cuda.is_available() else "cpu"
 sam = sam_model_registry["vit_b"](checkpoint=None) #using MedSAM pretrained checkpoint as provided in gitub repo
-state_dict = torch.load(checkpoint, map_location=torch.device("cpu")) 
+state_dict = torch.load(checkpoint, map_location=torch.device("cpu")) #to make it work locally when testing
 sam.load_state_dict(state_dict)  #loads all the necessary weights as well since that wont be change d in zero shot
 sam.to(device)
 
@@ -100,6 +100,7 @@ for filename in list(bbox_dict.keys()):
 print(f"\n DONE FINALLY GOT IT TO WORK!")
 print(f"Total processed: {processed}")
 print(f"Total skipped: {skipped}")
+
 
 
 
