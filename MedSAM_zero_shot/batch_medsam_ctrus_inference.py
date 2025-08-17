@@ -99,7 +99,8 @@ for filename in list(bbox_dict.keys()):
         skipped += 1
 
 # final Summary 
-print(f"\n DONE FINALLY!")
+print(f"\n DONE FINALLY GOT IT TO WORK!")
 print(f"Total processed: {processed}")
 print(f"Total skipped: {skipped}")
+
 
