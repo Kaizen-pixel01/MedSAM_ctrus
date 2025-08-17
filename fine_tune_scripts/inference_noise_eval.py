@@ -24,7 +24,7 @@ join = os.path.join
 #adding  noise to an image to stimulate speckle noise in real world practice
 def add_speckle_noise(image, variance=0.1): #variance is what determines the level of noise added to the image
     noise = np.random.normal(0, np.sqrt(variance), image.shape)
-    noisy_image = image + image * noise
+    noisy_image = image + image * noise #since I multiply the noise impact will depend on pixel intensity (same as brightness I examined in EDA)
     noisy_image = np.clip(noisy_image, 0, 255)
     return noisy_image.astype(np.uint8)
 
@@ -183,3 +183,4 @@ def main(): #same case of allowing for arguements to be custom so i can use it w
 
 if __name__ == "__main__":
     main()
+
