@@ -56,6 +56,13 @@ This folder contains a npotebook that provides an  **eploratory data analysis (E
 
 To run the code, you should have the MedSAM environment set up as per [MedSAM GitHub instructions](https://github.com/bowang-lab/MedSAM).
 - You can clone the MedSAM github repository so that you can have all the necessary files used in the scripts
+In order to be able to run the training file without changing any details you will have to do the followng:
+- Make sure that the files are placed in the proper location since I have used Collab, the file paths used are for GoogleDrive. This means that in order to get the training to work you will have to be wary of the following files and make sure they are placed in the right spot. The main pathing will be /content/drive/MyDrive/MedSAM (" in the following examples) and the rest will depend on the files being used. The following are the files you need to look out for:
+  - c-trus.filtered.csv should be placed  "/data/ctrus/
+  - train_one_gpu_medsam_with_evaluation_collab.py should be placed in "/fine_tune_scripts/
+  - inference_low_quality_eval_per.py should be placed in "/fine_tune_scripts/
+  - inference_noise_eval_per.py should be placed in "/fine_tune_scripts/
+  - 
 
 ---
 
