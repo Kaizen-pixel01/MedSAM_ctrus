@@ -137,7 +137,7 @@ def main(): #kept arg together since the reference kept it split up but i found 
     parser.add_argument("-num_workers", type=int, default=0)
     parser.add_argument("-lr", type=float, default=1e-4)
     parser.add_argument("-weight_decay", type=float, default=0.01)
-    parser.add_argument("--device", type=str, default="cpu")
+    parser.add_argument("--device", type=str, default="cpu") #initially tested on anaconda but due to hardware limitations i switched to collab
     args = parser.parse_args()
 
     run_id = datetime.now().strftime("%Y%m%d-%H%M")
@@ -236,5 +236,6 @@ def main(): #kept arg together since the reference kept it split up but i found 
 
 if __name__ == "__main__":
     main()
+
 
 
