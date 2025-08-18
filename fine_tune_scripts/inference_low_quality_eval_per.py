@@ -136,7 +136,7 @@ def main(): #this way i can parse commands to run different tests with different
     #the actual inference loop foing through the images
     for image, mask, box, name in tqdm(loader):
         image, mask = image.to(device), mask.to(device)
-        box_np = box.cpu().numpy()
+        box_np = box.cpu().numpy() #.cpu is used to deal with errors with numpy (searching the error mentions that numpy cannot work with cuda teendors - refering to how pytorch uses GPU so it needs to be used with.cpu to work)
         with torch.no_grad(): #same as training script
             pred = model(image, box_np)
             pred_sigmoid = torch.sigmoid(pred)
@@ -208,6 +208,7 @@ def main(): #this way i can parse commands to run different tests with different
 
 if __name__ == "__main__":
     main()
+
 
 
 
