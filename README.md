@@ -14,7 +14,7 @@ This folder includes all the files necessary to perform **zero-shot inference** 
 - A Jupyter Notebook that ties these components together to run the complete zero-shot pipeline
 
 ### Key Features:
-- Uses pre-trained MedSAM (`vit_b`) checkpoint
+- Uses pre-trained MedSAM (vit_b) checkpoint
 - Inference based on bounding box prompts
 - Evaluation metrics: Dice Score, IoU, Precision, Recall
 
@@ -24,7 +24,7 @@ This folder includes all the files necessary to perform **zero-shot inference** 
 
 This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRUS dataset and run additional evaluation experiments.
 
-- Training routines using `.py` files adapted from the official MedSAM GitHub repository
+- Training routines using .py files adapted from the official MedSAM GitHub repository
 - Evaluation scripts for:
   - Performance on low-quality images
   - Noise robustness testing
