@@ -11,6 +11,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
+import csv
 import argparse
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -143,6 +144,9 @@ def main(): #same case of allowing for arguements to be custom so i can use it w
 
     metrics_sum = {'dice': 0, 'iou': 0, 'precision': 0, 'recall': 0} #initialize metrics
     count = 0
+    # need to also collect per image metrics since I wount be able to conduct stat analysis without it
+    per_sample_rows = []
+    
     #inference and evaluation - looping through the given input images
     for image, mask, box, name in tqdm(loader):
         image, mask = image.to(device), mask.to(device)
@@ -154,6 +158,17 @@ def main(): #same case of allowing for arguements to be custom so i can use it w
             mask_resized = F.interpolate(mask.float(), size=pred.shape[2:], mode="nearest") #resizing to make sure ground truth matches so that the plots are actually usable (first few were unusable since there was no resizing)
 
             metrics = compute_metrics(pred_binary, mask_resized) 
+            #storing the per image metrics
+            per_sample_rows.append({
+                "image": name[0],
+                "dice": float(metrics['dice']),
+                "iou": float(metrics['iou']),
+                "precision": float(metrics['precision']),
+                "recall": float(metrics['recall']),
+                "noisy": bool(args.add_noise),
+                "noise_variance": float(args.noise_variance)
+            })
+            
             for k in metrics:
                 metrics_sum[k] += metrics[k]
             count += 1
@@ -181,6 +196,18 @@ def main(): #same case of allowing for arguements to be custom so i can use it w
         for k, v in avg_metrics.items():
             f.write(f"{k}: {v:.4f}\n")
 
+     # Also save per-image metrics for statistical testin
+    import csv
+    per_sample_csv = os.path.join(save_dir, "per_sample_metrics.csv")
+    with open(per_sample_csv, "w", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=["image", "dice", "iou", "precision", "recall", "noisy", "noise_variance"]
+        )
+        writer.writeheader()
+        writer.writerows(per_sample_rows)
+
 if __name__ == "__main__":
     main()
+
 
