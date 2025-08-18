@@ -1,2 +1,9 @@
 # This folder contains the nexessary files to run the experiments without training the models yourself. This would result in identical results to the ones obtained by me. 
+- Since the checkpoint files are too large I cannot provide them here. If you run the train_one_gpu_medsam_with_evaluation_collab.py following
+the instructions given in the python notebook named 'MedSAM_training_file', you should be able to get the same training parameters.
+## Pre-Trained Experiment Files  
+
+This folder includes all the necessary files to reproduce the experiments without re-training the models from scratch. Running these files will generate results identical to those reported in this project.  
+
+Since the checkpoint files are too large to host here, they are not included. However, you can recreate them by running the `train_one_gpu_medsam_with_evaluation_collab.py` script, following the steps outlined in the accompanying Jupyter notebook **`MedSAM_training_file.ipynb`**. This will ensure the same training parameters and outcomes.  
 
