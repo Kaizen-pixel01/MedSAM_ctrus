@@ -161,9 +161,9 @@ def main(): #this way i can parse commands to run different tests with different
             count += 1
             #saving visualization for first 4 samples (for visual analysis and can potentially add to the poster)
             if count <= 4:
-                img_np = image[0].cpu().numpy().transpose(1, 2, 0)
-                gt_np = mask_resized[0][0].cpu().numpy()
-                pred_np = pred_binary[0][0].cpu().numpy()
+                img_np = image[0].cpu().numpy().transpose(1, 2, 0) #.cpu is needed since it will give a type error due to how numpy works (also need to switch image data to match .imshow -since that is another source of error during testing)
+                gt_np = mask_resized[0][0].cpu().numpy() #don't need to change orientation since there is no color in the masks
+                pred_np = pred_binary[0][0].cpu().numpy() #same case here
                 fig, axs = plt.subplots(1, 3, figsize=(12, 4))
                 axs[0].imshow(img_np.astype(np.uint8))
                 axs[0].set_title("Image")
@@ -208,5 +208,6 @@ def main(): #this way i can parse commands to run different tests with different
 
 if __name__ == "__main__":
     main()
+
 
 
