@@ -37,14 +37,13 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
 - Visualizes predictions and saves evaluation results
 - Can simulate real-world conditions with noisy or low-quality inputs
 
----
-
-## Files for training 
- This folder containes the filtered csv file for the C-TRUS dataset that is used in the training step of the fine-tuned analysis. In order to make the code work, you would need to download the file into the appropriate directory to match the path in the Jupyter notebook for MedSAM training. 
-
 
 ---
 ### The next few folders help tie the project together
+
+---
+## Files for training 
+ This folder containes the filtered csv file for the C-TRUS dataset that is used in the training step of the fine-tuned analysis. In order to make the code work, you would need to download the file into the appropriate directory to match the path in the Jupyter notebook for MedSAM training. 
 
 ---
 
