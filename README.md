@@ -44,6 +44,9 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
 
 
 ---
+### The next few folders help tie the project together
+
+---
 
 ## analysis and visuals
   This folder contains the files and noteooks required to perform statistical analysis on the results from the experiments as well as how I used the results to create visuals. 
