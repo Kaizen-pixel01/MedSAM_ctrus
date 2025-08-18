@@ -75,7 +75,7 @@ In order to be able to run the training file without changing any details you wi
 This project uses the [C-TRUS dataset](https://github.com/wwu-mmll/c-trus), which provides annotated transabdominal ultrasound images for colon wall segmentation tasks.
 
 The C-TRUS dataset should be preprocessed into a format compatible with the scripts:
-- Images: `.npy` or `.jpg` format
+- Images: .npy or .jpg format
 - Masks: ground truth segmentations
 - Bounding boxes: JSON file or generated from masks
 - Also filtered metadata file to include only image-mask pairs that had valid ground truth masks (where the mask area was not 0) and it was called ctrus.filtered.csv (and it is used when testing MedSAM)
