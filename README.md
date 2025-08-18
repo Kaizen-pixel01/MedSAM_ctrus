@@ -13,7 +13,7 @@ This folder includes all the files necessary to perform **zero-shot inference** 
 - Python scripts for preprocessing, bounding box generation, inference, and evaluation
 - A Jupyter Notebook that ties these components together to run the complete zero-shot pipeline
 
-### Key Features:
+## Key Features:
 - Uses pre-trained MedSAM (`vit_b`) checkpoint
 - Inference based on bounding box prompts
 - Evaluation metrics: Dice Score, IoU, Precision, Recall
