@@ -40,10 +40,10 @@ for pred_file in tqdm(pred_files): #iterating through the preducted maskes made 
     if not os.path.exists(gt_path): #skipping when no gt mask (debugging as well)
         skipped += 1
         continue
-'''
-main issue of adapting MedSAM with c-trus dataset is the grayscale format of the TAUS images since the example provided in the Medsam sample runs are colored or have easily diferentiatable images (even the high quality images from c-trus are not that
-easy to differentiate
-'''
+
+    #main issue of adapting MedSAM with c-trus dataset is the grayscale format of the TAUS images since the example provided in the Medsam sample runs are colored or have easily diferentiatable images (even the high quality images from c-trus 
+    #are not thateasy to differentiate
+
     # loading in grayscale
     pred_mask = cv2.imread(pred_path, cv2.IMREAD_GRAYSCALE)
     gt_mask = cv2.imread(gt_path, cv2.IMREAD_GRAYSCALE)
@@ -71,3 +71,4 @@ else:
 
 if skipped > 0:
     print(f" Skipped {skipped} image(s) due to missing files or read errors.")
+
