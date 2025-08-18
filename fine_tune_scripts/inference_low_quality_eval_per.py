@@ -139,8 +139,8 @@ def main(): #this way i can parse commands to run different tests with different
         box_np = box.cpu().numpy() #.cpu is used to deal with errors with numpy (searching the error mentions that numpy cannot work with cuda teendors - refering to how pytorch uses GPU so it needs to be used with.cpu to work)
         with torch.no_grad(): #same as training script
             pred = model(image, box_np)
-            pred_sigmoid = torch.sigmoid(pred)
-            pred_binary = (pred_sigmoid > 0.5).float()
+            pred_sigmoid = torch.sigmoid(pred) #converts the output to a probability
+            pred_binary = (pred_sigmoid > 0.5).float() #this is the part that binarizes - so whether it is considered the colon wall or background
             mask_resized = F.interpolate(mask.float(), size=pred.shape[2:], mode="nearest")
 
             metrics = compute_metrics(pred_binary, mask_resized)
@@ -208,6 +208,7 @@ def main(): #this way i can parse commands to run different tests with different
 
 if __name__ == "__main__":
     main()
+
 
 
 
