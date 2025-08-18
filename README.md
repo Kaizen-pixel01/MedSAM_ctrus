@@ -82,4 +82,11 @@ The C-TRUS dataset should be preprocessed into a format compatible with the scri
 
 ---
 
+##  Imprtant Changes to Original Medsam Reference Files
+
+For this project, I had to make some adjustments to the original MedSAM code so that it would work with the C-TRUS dataset. I ran zero-shot tests with box prompts, saving the results, and keeping track of performance for each image. Since the reference code didn’t provide detailed evaluation, I also created my own evaluation step to calculate metrics like Dice, IoU, precision, and recall. I did this by binarizing the predicted masks (which were just soft masks produced by MedSAM) using thresholds. This way I could use it alongside the ground truth mask (which I also binzarized in the preprocessing step that converts the original .jpg images into .npy arrays) to calculate overlap. I also tweaked the reference training script to better all fine-tuning with different image subsets and saving the progress by updating the checkpoint file. 
+
+
+
+
 
