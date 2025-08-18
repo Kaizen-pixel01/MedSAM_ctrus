@@ -130,6 +130,9 @@ def main(): #this way i can parse commands to run different tests with different
 
     metrics_sum = {'dice': 0, 'iou': 0, 'precision': 0, 'recall': 0}
     count = 0
+    # need to also collect per image metrics since I wount be able to conduct stat analysis without it
+    per_sample_rows = []
+    
     #the actual inference loop foing through the images
     for image, mask, box, name in tqdm(loader):
         image, mask = image.to(device), mask.to(device)
@@ -141,6 +144,18 @@ def main(): #this way i can parse commands to run different tests with different
             mask_resized = F.interpolate(mask.float(), size=pred.shape[2:], mode="nearest")
 
             metrics = compute_metrics(pred_binary, mask_resized)
+
+            #storing the per image metrics
+            per_sample_rows.append({
+                "image": name[0],
+                "dice": float(metrics['dice']),
+                "iou": float(metrics['iou']),
+                "precision": float(metrics['precision']),
+                "recall": float(metrics['recall']),
+                "noisy": bool(args.add_noise),
+                "noise_variance": float(args.noise_variance)
+            })
+            
             for k in metrics:
                 metrics_sum[k] += metrics[k]
             count += 1
@@ -169,7 +184,16 @@ def main(): #this way i can parse commands to run different tests with different
         for k, v in avg_metrics.items():
             f_txt.write(f"{k}: {v:.4f}\n")
         json.dump(avg_metrics, f_json, indent=4) #makes it wasy to extract for analysis later
+    
+    # Saving per image metrics for statistcal tests
+    import csv
+    per_sample_csv = os.path.join(save_dir, "per_sample_metrics.csv")
+    with open(per_sample_csv, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["image", "dice", "iou", "precision", "recall"])
+        writer.writeheader()
+        writer.writerows(per_sample_rows)
 
+    
     # Plotting bar chart
     plt.figure(figsize=(6, 4))
     plt.bar(avg_metrics.keys(), avg_metrics.values(), color='skyblue')
@@ -184,4 +208,5 @@ def main(): #this way i can parse commands to run different tests with different
 
 if __name__ == "__main__":
     main()
+
 
