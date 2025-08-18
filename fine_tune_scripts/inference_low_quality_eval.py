@@ -86,7 +86,7 @@ class MedSAM(nn.Module): #ensuring pretrained componets are being used - freezin
 
 #  Metrics 
 def compute_metrics(preds, targets): #same format as training script - needed for comparisons amongst models
-    smooth = 1e-8  #avoid zero calculations
+    smooth = 1e-6  #avoid zero calculations
     #flattening both masks so that the calculations for the metrics can be made easily (without errors poping up for shaping (since it wont work if the dimenstions are different for the two masks)
     preds = preds.view(preds.shape[0], -1)
     targets = targets.view(targets.shape[0], -1)
@@ -184,3 +184,4 @@ def main(): #this way i can parse commands to run different tests with different
 
 if __name__ == "__main__":
     main()
+
