@@ -67,7 +67,10 @@ In order to be able to run the training file without changing any details you wi
   - batch_medsam_ctrus_inference.py
   - batch_medsam_ctrus_inference_final.py
   - evaluate_medsam_predictions.py
-    
+- I have also provided the checkpoint folder created from my analysis if you want to use instead of training your own (it will also mean that you do not have to change the filename when doing experiments). These should be placed in /content/drive/MyDrive/MedSAM/work_dir/
+  - MedSAM-ViT-B-20250726-hig
+  - MedSAM-ViT-B-20250728-mixedS
+  - MedSAM-ViT-B-20250728-lowS
 
 ---
 
