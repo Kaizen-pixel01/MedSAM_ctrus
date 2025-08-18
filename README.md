@@ -62,7 +62,12 @@ In order to be able to run the training file without changing any details you wi
   - train_one_gpu_medsam_with_evaluation_collab.py should be placed in "/fine_tune_scripts/
   - inference_low_quality_eval_per.py should be placed in "/fine_tune_scripts/
   - inference_noise_eval_per.py should be placed in "/fine_tune_scripts/
-  - 
+- For zero-shot the files should be placed in a different directory: /content/drive/MyDrive/MedSAM/zero_shot_result_scripts
+  - generate_bboxes_from_masks.py
+  - batch_medsam_ctrus_inference.py
+  - batch_medsam_ctrus_inference_final.py
+  - evaluate_medsam_predictions.py
+    
 
 ---
 
