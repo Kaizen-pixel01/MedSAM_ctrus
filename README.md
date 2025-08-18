@@ -30,12 +30,24 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
   - Noise robustness testing
   - Generalization tests on different training-validation splits
 
+
 ### Key Features:
 - Supports training from scratch or continuing from a pre-trained checkpoint
 - Computes standard segmentation metrics
 - Visualizes predictions and saves evaluation results
 - Can simulate real-world conditions with noisy or low-quality inputs
 
+---
+
+## Files for training 
+ This folder containes the filtered csv file for the C-TRUS dataset that is used in the training step of the fine-tuned analysis. In order to make the code work, you would need to download the file into the appropriate directory to match the path in the Jupyter notebook for MedSAM training. 
+
+
+---
+
+## analysis and visuals
+  This folder contains the files and noteooks required to perform statistical analysis on the results from the experiments as well as how I used the results to create visuals. 
+  
 ---
 ## EDA
 
