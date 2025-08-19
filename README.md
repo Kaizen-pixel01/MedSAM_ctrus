@@ -88,6 +88,8 @@ In order to be able to run the training file without changing any details you wi
   - MedSAM-ViT-B-20250728-mixedS
   - MedSAM-ViT-B-20250728-lowS
 
+- After downloading C-TRUS dataset, please change the name of the folder that has the masks from 'labels' to 'masks'. I had changed the folder name to match the contents of the folder so that it made it more organiozed when making subfolders during analysis. 
+
 ---
 
 ##  Dataset
