@@ -81,6 +81,7 @@ In order to be able to run the training file without changing any details you wi
   - batch_medsam_ctrus_inference.py
   - batch_medsam_ctrus_inference_final.py
   - evaluate_medsam_predictions.py
+- Also since zeroshot uses the masks from C-TRUS dataset, make sure that you have downloaded the MedSAM repo and place it in /content/drive/MyDrive/ if you want to make no changes to the code. Otherwise you would have to update the generate_bboxes_from_masks.py with your correct directory that you saved MedSAM in.
 - I have also provided the three MedSAM checkpoint folder names here. These are a result of training the MedSAM model using a given subset. The issue is that these folders are too large to download from Goog Drive, so I have included the names here as a reminder to change your trained checkpoints to match these names when evaluating. Another option is to use the correct pathing for your own checkpoint forlder when running the test (since the inference files let you change checkpoint paths). If you want to the same pathing as me, the following folders should be placed in /content/drive/MyDrive/MedSAM/work_dir/
   - MedSAM-ViT-B-20250726-high
   - MedSAM-ViT-B-20250728-mixedS
