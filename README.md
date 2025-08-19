@@ -8,10 +8,11 @@ The project is organized into two main folders:
 
 ## MedSAM_zero_shot
 
-This folder includes all the files necessary to perform **zero-shot inference** using MedSAM on the C-TRUS dataset.
-
+This folder includes all the files necessary to perform **zero-shot inference** using MedSAM on the C-TRUS dataset. 
 - Python scripts for preprocessing, bounding box generation, inference, and evaluation
 - A Jupyter Notebook that ties these components together to run the complete zero-shot pipeline
+
+Please make sure to download the MedSAM repo and place it into the correct directory (so that it matches the files otherwise you will have to update the paths in the files to allow for the Jupyter Notebook to work).
 
 ### Key Features:
 - Uses pre-trained MedSAM (vit_b) checkpoint
