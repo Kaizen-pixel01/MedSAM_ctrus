@@ -25,18 +25,19 @@ Please make sure to download the MedSAM repo and place it into the correct direc
 
 This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRUS dataset and run additional evaluation experiments.
 
-- Training routines using .py files adapted from the official MedSAM GitHub repository
+- Training using .py files adapted from the official MedSAM GitHub repository
 - Evaluation scripts for:
   - Performance on low-quality images
   - Noise robustness testing
   - Generalization tests on different training-validation splits
 
 
+
 ### Key Features:
 - Supports training from scratch or continuing from a pre-trained checkpoint
-- Computes standard segmentation metrics
 - Visualizes predictions and saves evaluation results
-- Can simulate real-world conditions with noisy or low-quality inputs
+- Trying to simulate real-world conditions with noisy or low-quality inputs
+- Evaluation metrics: Dice Score, IoU, Precision, Recall
 
 
 ---
