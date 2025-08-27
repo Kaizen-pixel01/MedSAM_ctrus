@@ -37,7 +37,7 @@ This folder contains scripts and a notebook to **fine-tune** MedSAM on the C-TRU
 - Supports training from scratch or continuing from a pre-trained checkpoint
 - Visualizes predictions and saves evaluation results
 - Trying to simulate real-world conditions with noisy or low-quality inputs
-- Evaluation metrics: Dice Score, IoU, Precision, Recall
+- Evaluation metrics: Dice Score, IoU
 
 
 ---
