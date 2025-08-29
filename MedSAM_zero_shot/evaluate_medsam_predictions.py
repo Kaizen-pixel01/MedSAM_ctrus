@@ -18,7 +18,7 @@ pred_mask_dir = "/content/drive/MyDrive/MedSAM/data/ctrus/predicted_masks"
 # Helper functionsto compute dice and iou scores (this will be common for all testing and training as well since this is what will help make comparisons between models and tests)
 def dice_score(y_true, y_pred):
     intersection = np.logical_and(y_true, y_pred).sum()
-    return (2. * intersection) / (y_true.sum() + y_pred.sum() + 1e-8) #to avoid 0 divisions and small enough to not affect the results - also helped get rid of attribute errors when building the test but not sure if it is correlated
+    return (2. * intersection) / (y_true.sum() + y_pred.sum() + 1e-6) #to avoid 0 divisions and small enough to not affect the results - also helped get rid of attribute errors when building the test but not sure if it is correlated
 
 def iou_score(y_true, y_pred):
     intersection = np.logical_and(y_true, y_pred).sum()
@@ -71,4 +71,5 @@ else:
 
 if skipped > 0:
     print(f" Skipped {skipped} image(s) due to missing files or read errors.")
+
 
