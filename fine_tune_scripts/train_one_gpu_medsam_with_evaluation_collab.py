@@ -5,7 +5,7 @@ Created on Sun Jul 20 15:51:49 2025
 @author: kisha
 """
 
-# train_one_gpu_with_metrics.py - reference file from repo (since most of the structure was there, i just had to add my pathing and also had to change some parts,removing functions that were not useful as well, to make it work with c-trus)
+# train_one_gpu.py - reference file from repo (since most of the structure was there, i just had to add my pathing and also had to change some parts,removing functions that were not useful as well, to make it work with c-trus)
 # training MedSAM on npy image-mask pairs 
 
 import numpy as np
@@ -236,6 +236,7 @@ def main(): #kept arg together since the reference kept it split up but i found 
 
 if __name__ == "__main__":
     main()
+
 
 
 
